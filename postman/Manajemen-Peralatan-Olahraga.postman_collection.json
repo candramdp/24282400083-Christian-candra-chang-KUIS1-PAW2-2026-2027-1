@@ -1,0 +1,98 @@
+{
+  "info": {
+    "_postman_id": "3aeb1e9d-78b6-4e5d-a6fc-24282400083",
+    "name": "Manajemen Data Peralatan Olahraga API",
+    "description": "Collection CRUD untuk REST API peralatan olahraga. Atur base_url ke alamat server dan id_alat ke ID dokumen MongoDB.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "id_alat",
+      "value": "GANTI_DENGAN_ID_MONGODB",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Cek API",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/"
+      }
+    },
+    {
+      "name": "Daftar semua alat",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/alat"
+      }
+    },
+    {
+      "name": "Detail alat",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/alat/{{id_alat}}"
+      }
+    },
+    {
+      "name": "Tambah alat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama_alat\": \"Bola Basket\",\n  \"kategori\": \"Bola\",\n  \"stok\": 10,\n  \"harga\": 150000\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/api/alat"
+      }
+    },
+    {
+      "name": "Ubah alat",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama_alat\": \"Bola Basket\",\n  \"kategori\": \"Bola\",\n  \"stok\": 12,\n  \"harga\": 150000\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{base_url}}/api/alat/{{id_alat}}"
+      }
+    },
+    {
+      "name": "Hapus alat",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{base_url}}/api/alat/{{id_alat}}"
+      }
+    }
+  ]
+}
